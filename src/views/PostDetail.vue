@@ -4,10 +4,14 @@
         <span><h3>{{blog.blogTitle}}</h3></span>
       </ul>
       <ul>
-        <span>{{blog.createdAt}} / {{blog.tags}}</span>
+        {{blog.createdAt}}
+        <div v-if="blog.tags !== null && blog.tags !== ''">
+          <el-tag disable-transitions size="small" effect="plain" v-for="tag in blog.tags"
+                  :key="tag"> {{ tag }}</el-tag>
+        </div>
       </ul>
       <ul>
-        <span>{{blog.blogHtml}}</span>
+        <span v-html="blog.blogHtml">{{blog.blogHtml}}</span>
       </ul>
     </div>
 </template>

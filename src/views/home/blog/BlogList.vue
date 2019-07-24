@@ -16,8 +16,14 @@
       <el-table :data="blogList" style="width: 100%" stripe
                 :default-sort="{prop: 'lastUpdatedAt', order: 'descending'}" v-loading="listLoading">
         <el-table-column label="标题" prop="blogTitle" sortable></el-table-column>
-        <el-table-column label="内容" prop="blogContent"></el-table-column>
-        <!--<el-table-column label="标签" prop="tags"></el-table-column>-->
+        <el-table-column label="标签" prop="tags">
+          <template slot-scope="scope">
+            <div v-if="scope.row.tags !== null && scope.row.tags.size !== 0">
+              <el-tag disable-transitions size="small" effect="plain" v-for="tag in scope.row.tags"
+                      :key="tag"> {{ tag }} </el-tag>
+            </div>
+          </template>
+        </el-table-column>
         <el-table-column label="创建时间" prop="createdAt" sortable></el-table-column>
         <el-table-column label="最后更新时间" prop="lastUpdatedAt" sortable></el-table-column>
         <el-table-column label="操作" fixed="right">
@@ -132,5 +138,8 @@
   .row-bg {
     padding: 10px 0;
     background-color: #f9fafc;
+  }
+  .el-tag+ .el-tag{
+    margin-left: 6px;
   }
 </style>
