@@ -5,7 +5,8 @@
       <router-link to="/bookmark">收藏</router-link> |
       <router-link to="/tags">标签</router-link> |
       <router-link to="/search">搜索</router-link> |
-      <router-link to="/about">关于</router-link>
+      <router-link to="/tools">工具</router-link>
+      <!--<router-link to="/about">关于</router-link>-->
     </div>
     <router-view />
   </div>

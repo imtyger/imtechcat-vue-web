@@ -2,15 +2,15 @@
   <div>
     <el-container>
       <el-main>
-        <div v-if="markList !== null && markList.size !== 0">
-          <div v-for="mark in markList">
-            <ul>
+        <span v-if="markList !== null && markList.size !== 0">
+          <span v-for="mark in markList">
+            <el-row >
               <a target="_blank" :href="mark.markLink">
                 <h4>{{mark.markTitle}}</h4>
               </a>
-            </ul>
-          </div>
-        </div>
+            </el-row>
+          </span>
+        </span>
       </el-main>
     </el-container>
     <pagination

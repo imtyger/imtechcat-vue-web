@@ -42,11 +42,6 @@
             return {
                 blogForm: {},
                 // blogHtml: '',
-                // languageTypeList: {
-                //     'en': 'en_US',
-                //     'zh': 'zh_CN',
-                //     'es': 'es_ES'
-                // },
                 loading: false,
                 selectItems: [],
                 rules: {

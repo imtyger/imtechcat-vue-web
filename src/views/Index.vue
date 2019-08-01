@@ -4,30 +4,31 @@
       <el-main>
         <div v-if="blogList !== null && blogList.size !== 0">
           <div v-for="blog in blogList">
-            <ul>
+            <el-row>
               <router-link :to="{path:'/post/'+ blog.id }">
-                <h4>{{blog.blogTitle}}</h4>
+                <span><h3>{{blog.blogTitle}}</h3></span>
               </router-link>
-            </ul>
-            <ul>
-              {{blog.createdAt}}
-              <div v-if="blog.tags !== null && blog.tags.size !== 0">
-                <el-tag disable-transitions size="small" effect="plain" v-for="tag in blog.tags"
-                  :key="tag"> {{ tag }}</el-tag>
-              </div>
-            </ul>
-            <ul>
-              <span v-html="blog.blogHtml">{{blog.blogHtml}}</span>
-            </ul>
-            <ul>
+            </el-row>
+            <el-row type="flex" justify="start">
+              <span>{{ blog.createdAt | formatDate }}</span>
+              <span>/</span>
+              <span v-if="blog.tags !== null && blog.tags.size !== 0">
+                  <el-tag disable-transitions size="mini" type="info"  effect="plain" v-for="tag in blog.tags"
+                          :key="tag">{{ tag }}</el-tag>
+              </span>
+            </el-row>
+            <el-row>
+              <span v-html="blog.blogProfile">{{blog.blogProfile }}</span>...
+            </el-row>
+            <el-row>
               <router-link :to="{path:'/post/'+ blog.id }">
-                <span>阅读原文></span>
+                <span>阅读全文></span>
               </router-link>
-            </ul>
+            </el-row>
           </div>
         </div>
       </el-main>
-      <el-footer class="bg">
+      <el-footer>
         <span>京ICP备19001124号-1</span>
       </el-footer>
     </el-container>
@@ -48,7 +49,7 @@
         pageNum: 1,
         pageSize: 10,
         pageTotal: undefined,
-        count: undefined,
+        count: undefined
       }
     },
     components: {
@@ -73,7 +74,7 @@
         this.pageSize = data.data.pageSize
         this.pageTotal = data.data.pageTotal
         this.count = data.data.count
-      },
+      }
     }
   }
 </script>
@@ -81,24 +82,35 @@
 <style scoped>
 
   .el-footer{
-    background-color: #999999;
     color: #333333;
     font-size: 12px;
+    border: #cac6c6;
     line-height: 60px;
+    text-align: center;
+    background-color: #f9fafc;
   }
-  .el-container{
+  el-container{
     height: 100%;
   }
   .el-main{
-    width: 100%;
     height: 100%;
     text-align: left;
+    font-size: 15px;
+    margin-left: 150px;
+    margin-right: 100px;
   }
 
-  .bg{
-    height: 60px;
-    text-align: center;
-    background-color: #f9fafc;
+  .el-row {
+    margin-bottom: 15px;
+    &:last-child {
+      margin-bottom: 0px;
+      margin-left: 0px;
+   }
+  }
+  .el-col {
+    /*border-radius: 4px;*/
+    margin-left: 0px;
+    font-size: 14px;
   }
 
 </style>

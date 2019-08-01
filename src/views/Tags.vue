@@ -38,7 +38,7 @@
         this._formatList(data)
       },
       _formatList(data) {
-        this.tagList = data.data
+        this.tagList = data.data.list
       },
     }
   }

@@ -6,7 +6,7 @@ import store from '@/store'
 
 Vue.use(Router)
 
-const whiteList = ['/', '/login', '/search', '/about', '/bookmark', '/tags']
+const whiteList = ['/', '/login', '/search', '/about', '/bookmark', '/tags', '/tools']
 
 export const constantRouteMap = [
   {
@@ -43,6 +43,11 @@ export const constantRouteMap = [
     path: '/login',
     name: 'login',
     component: () => import('../views/Login.vue')
+  },
+  {
+    path: '/tools',
+    name: 'tools',
+    component: () => import('../views/Tools.vue')
   },
   {
     path: '/about',

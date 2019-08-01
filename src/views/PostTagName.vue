@@ -1,17 +1,17 @@
 <template>
     <div>
-      <ul><h3>{{ tagName }}</h3></ul>
-      <div v-if="blogList !== null && blogList.size !== 0">
-        <div v-for="blog in blogList">
-          <span>
-            {{ blog.createdAt }}
+      <span><h2>{{ tagName }}</h2></span>
+      <span v-if="blogList !== null && blogList.size !== 0">
+        <h4>
+          <span v-for="blog in blogList">
+            <span>{{ blog.createdAt | formatDate }}</span>
+            <span> -- </span>
             <router-link :to="{path:'/post/'+ blog.id }">
-              <h4>{{ blog.blogTitle }}</h4>
+              <span>{{ blog.blogTitle }}</span>
             </router-link>
           </span>
-
-        </div>
-      </div>
+        </h4>
+      </span>
 
     </div>
 </template>
@@ -47,4 +47,8 @@
 
 <style scoped>
 
+  h3,h4,h5{
+    font-weight: normal;
+    font-size: 16px;
+  }
 </style>
