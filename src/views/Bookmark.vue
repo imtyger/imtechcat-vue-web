@@ -1,24 +1,16 @@
 <template>
   <div>
-    <el-container>
-      <el-main>
-        <span v-if="markList !== null && markList.size !== 0">
-          <span v-for="mark in markList">
-            <el-row >
-              <a target="_blank" :href="mark.markLink">
-                <h4>{{mark.markTitle}}</h4>
-              </a>
-            </el-row>
-          </span>
-        </span>
-      </el-main>
-    </el-container>
+    <div class="content">
+      <div v-for="mark in markList" class="book-mark-item">
+        <a target="_blank" :href="mark.markLink">{{mark.markTitle}}</a>
+      </div>
+    </div>
     <pagination
-      background
-      layout="prev, pager, next"
-      :pageTotal="count"
-      :pageNum="pageNum"
-      :pageSize="pageSize"
+            background
+            layout="prev, pager, next"
+            :pageTotal="count"
+            :pageNum="pageNum"
+            :pageSize="pageSize"
     >
     </pagination>
   </div>
@@ -66,5 +58,12 @@
 </script>
 
 <style scoped>
+  .content {
+    margin: 10px 180px 10px 180px;
+    padding: 20px;
+  }
 
+  .book-mark-item {
+    margin-top: 15px
+  }
 </style>
