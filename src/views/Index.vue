@@ -20,6 +20,9 @@
         </article>
       </el-col>
     </el-row>
+    <div class="page-component__scroll el-scrollbar__wrap">
+      <el-backtop></el-backtop>
+    </div>
   </div>
 </template>
 
@@ -66,13 +69,13 @@
 
 <style scoped>
   .recent-posts {
-    margin: 10px 180px 10px 180px;
+    margin: 10px 150px 10px 150px;
     padding: 20px;
   }
 
   .recent-posts {
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 70%;
   }
   @media (max-width: 576px) {
     .recent-posts {
@@ -141,4 +144,23 @@
   .recent-posts .recent-post-item .time {
     color: #999;
   }
+
+  .backtop{
+    height: 100%;
+    width: 100%;
+    background-color: #f2f5f6;
+    box-shadow: 0 0 6px rgba(0,0,0, .12);
+    text-align: center;
+    line-height: 40px;
+    color: #1989fa;
+  }
+
+  .page-component__scroll{
+    overflow:hidden;
+  }
+
+  .page-component__scroll>.el-scrollbar__wrap {
+    overflow-x: auto;
+  }
+
 </style>

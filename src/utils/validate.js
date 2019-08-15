@@ -4,7 +4,10 @@ export function isURL (uri) {
 }
 
 export function timetrans(timestamp){
-  var date = new Date(timestamp*1000);//如果date为13位不需要乘1000
+  if(timestamp.length <= 10){
+    timestamp = timestamp * 1000;
+  }
+  var date = new Date(timestamp);
   var Y = date.getFullYear() + '-';
   var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
   var D = (date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate()) + ' ';

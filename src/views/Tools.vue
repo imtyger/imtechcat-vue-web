@@ -3,7 +3,7 @@
         <el-card class="box-card">
             <el-row style="text-align: center; margin-bottom: 20px;">时间转换</el-row>
             <el-row type="flex" :gutter="20">
-                <el-col :span="8"><el-input v-model="timestamp1" placeholder="时间戳/毫秒" clearable></el-input></el-col>
+                <el-col :span="8"><el-input v-model="timestamp1" placeholder="时间戳/秒" clearable></el-input></el-col>
                 <el-col :span="2"><el-button @click="getDate">转换</el-button></el-col>
                 <el-col :span="8"><el-input v-model="date1" placeholder="日期/yyyy-mm-dd hh:mm:ss" clearable></el-input></el-col>
                 <el-col :span="8"><el-input v-model="date2" placeholder="日期/yyyy-mm-dd hh:mm:ss" clearable></el-input></el-col>

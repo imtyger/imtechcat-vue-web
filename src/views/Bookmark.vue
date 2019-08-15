@@ -64,6 +64,7 @@
   }
 
   .book-mark-item {
-    margin-top: 15px
+    margin-top: 15px;
+    border-width: 1px;
   }
 </style>
