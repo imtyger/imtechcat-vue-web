@@ -28,7 +28,7 @@
         <el-table-column label="最后更新时间" prop="lastUpdatedAt" sortable></el-table-column>
         <el-table-column label="展示" prop="status" >
           <div slot-scope="scope">
-            <el-switch v-model="scope.row.status" name="status" active-value="1" inactive-value="0"
+            <el-switch v-model="scope.row.status"  name="status" active-value="1" inactive-value="0"
                        @change="switchStatus(scope.row)" placement="top"></el-switch>
           </div>
         </el-table-column>
@@ -170,4 +170,5 @@
   .el-tag+ .el-tag{
     margin-left: 6px;
   }
+
 </style>
