@@ -8,9 +8,9 @@
           </router-link>
           <div class="post-meta">
             <span>{{ blog.createdAt | formatDate }}</span>
-            <span>/</span>
+            <span>&nbsp;/&nbsp;</span>
             <ul class="index-tag-list" v-if="blog.tags !== null && blog.tags.size !== 0">
-              <li class="index-tag-list-item" v-for="tag in blog.tags" :key="tag">{{ tag }}</li>
+              <li class="index-tag-list-item" v-for="tag in blog.tags" :key="tag">{{ tag }}&nbsp;</li>
             </ul>
           </div>
           <div v-html="blog.blogProfile"></div>

@@ -9,10 +9,11 @@ const getHomeBlogList = (query) => {
 }
 
 const deleteHomeBlog = (data) => {
+  const id = data.id;
   return request({
-    url: '/home/blog/delete',
+    url: '/home/blog/delete/' + id,
     method: 'delete',
-    data
+    params: id
   })
 }
 
