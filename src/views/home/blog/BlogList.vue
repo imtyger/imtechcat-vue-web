@@ -136,7 +136,6 @@
 
       },
       switchStatus(row){
-        console.log(row.id + '-' + row.status)
         updateHomeBlogByIdAndStatus(row.id, row.status).then(res => {
           this.status = res.data.status;
         }).catch(() => {
