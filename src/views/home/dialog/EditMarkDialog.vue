@@ -19,10 +19,6 @@
             </template>
           </el-input>
 
-
-          <!--<tag-input>-->
-            <!---->
-          <!--</tag-input>-->
         </el-form-item>
         <el-form-item label="URL" prop="markLink">
           <el-input v-model="selectedItem.markLink" type="textarea" :row="3" auto-complete="off"></el-input>

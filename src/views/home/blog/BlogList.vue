@@ -26,6 +26,12 @@
         </el-table-column>
         <el-table-column label="创建时间" prop="createdAt" sortable></el-table-column>
         <el-table-column label="最后更新时间" prop="lastUpdatedAt" sortable></el-table-column>
+        <el-table-column label="展示" prop="status" >
+          <div slot-scope="scope">
+            <el-switch v-model="scope.row.status" name="status" active-value="1" inactive-value="0"
+                       @change="switchStatus(scope.row)" placement="top"></el-switch>
+          </div>
+        </el-table-column>
         <el-table-column label="操作" fixed="right">
           <div slot-scope="scope">
             <el-button size="mini" @click="editBlog(scope.row)">编辑</el-button>
@@ -49,13 +55,14 @@
 
 <script>
   import pagination from '@/components/Pagination'
-  import { getHomeBlogList, deleteHomeBlog, updateHomeBlog } from '../../../api/blog'
+  import { updateHomeBlogByIdAndStatus, getHomeBlogList, deleteHomeBlog } from '../../../api/blog'
   import { Message, MessageBox } from 'element-ui'
 
   export default {
     data () {
       return {
         dialogType: -1,
+        editType: -1,
         listLoading: false,
         blogList: [],
         pageNum: 1,
@@ -63,7 +70,8 @@
         pageTotal: undefined,
         count: undefined,
         searchData: '',
-        selectedItem: {}
+        selectedItem: {},
+        status: undefined
       }
     },
     mounted () {
@@ -84,16 +92,29 @@
       },
       _formatList(data) {
         this.blogList = data.data.list
+        if(this.blogList !== null || this.blogList !== ''){
+          this._checkBlogStatus(this.blogList);
+        }
         this.pageNum = data.data.pageNum
         this.pageSize = data.data.pageSize
         this.pageTotal = data.data.pageTotal
         this.count = data.data.count
       },
+      _checkBlogStatus(blogList) {
+        blogList.forEach((blog) => {
+          if(blog.status == true){
+            blog.status = "1";
+          }else{
+            blog.status = "0";
+          }
+        })
+      },
       onClickNew () {
 
       },
       editBlog(item){
-        this.selectedItem = item
+        const id = item.id
+        this.$router.push('/home/blog-edit/'+id)
       },
       async deleteBlog(row){
         MessageBox.confirm('确定删除此记录嘛？', '提示', {
@@ -113,6 +134,14 @@
       },
       search(){
 
+      },
+      switchStatus(row){
+        console.log(row.id + '-' + row.status)
+        updateHomeBlogByIdAndStatus(row.id, row.status).then(res => {
+          this.status = res.data.status;
+        }).catch(() => {
+          Message.error('修改展示失败')
+        })
       }
     }
   }

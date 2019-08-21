@@ -75,6 +75,10 @@ export const constantRouteMap = [
                 component: () => import('../views/home/blog/NewBlog.vue')
             },
             {
+                path: 'blog-edit/:id',
+                component: () => import('../views/home/blog/EditBlog.vue')
+            },
+            {
                 path: 'setting',
                 component: () => import('../views/home/Set.vue')
             },

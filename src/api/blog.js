@@ -24,6 +24,14 @@ const updateHomeBlog = (data) => {
   })
 }
 
+const getHomeBlogById = (id) => {
+  return request({
+    url: '/home/blog-edit/' + id,
+    method: 'get',
+    params: id
+  })
+}
+
 const newHomeBlog = (data) => {
   return request({
     url: '/home/blog/new',
@@ -48,6 +56,16 @@ const getBlogPostId = (id) => {
   })
 }
 
+const updateHomeBlogByIdAndStatus = (id,status) => {
+  return request({
+    url: '/home/blog/update/' + id + '/' + status,
+    method: 'put',
+    params: {
+      id, status
+    }
+  })
+}
+
 const getBlogsPostTagName = (tagName) => {
   return request({
     url: '/tags/post/' + tagName,
@@ -56,4 +74,4 @@ const getBlogsPostTagName = (tagName) => {
   })
 }
 
-export { getHomeBlogList, deleteHomeBlog, updateHomeBlog, newHomeBlog, getBlogList, getBlogPostId, getBlogsPostTagName }
+export { getHomeBlogList, deleteHomeBlog, updateHomeBlog, getHomeBlogById, updateHomeBlogByIdAndStatus, newHomeBlog, getBlogList, getBlogPostId, getBlogsPostTagName }
