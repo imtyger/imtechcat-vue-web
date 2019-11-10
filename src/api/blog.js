@@ -75,4 +75,11 @@ const getBlogsPostTagName = (tagName) => {
   })
 }
 
-export { getHomeBlogList, deleteHomeBlog, updateHomeBlog, getHomeBlogById, updateHomeBlogByIdAndStatus, newHomeBlog, getBlogList, getBlogPostId, getBlogsPostTagName }
+const getAbout = () => {
+  return request({
+    url: '/about',
+    method: 'get',
+  })
+}
+
+export { getHomeBlogList, deleteHomeBlog, updateHomeBlog, getHomeBlogById, updateHomeBlogByIdAndStatus, newHomeBlog, getBlogList, getBlogPostId, getBlogsPostTagName, getAbout }

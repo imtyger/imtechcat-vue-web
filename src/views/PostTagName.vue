@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="content">
       <span><h2>{{ tagName }}</h2></span>
       <!--<span v-if="blogList !== null && blogList.size !== 0">-->
         <h4>
@@ -50,5 +50,10 @@
   h3,h4,h5{
     font-weight: normal;
     font-size: 16px;
+  }
+
+  .content {
+    margin: 10px 180px 10px 180px;
+    padding: 20px;
   }
 </style>

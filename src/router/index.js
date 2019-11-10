@@ -7,7 +7,7 @@ import store from '@/store'
 
 Vue.use(Router)
 
-const whiteList = ['/', '/login', '/search', '/about', '/bookmark', '/tags', '/tools']
+const whiteList = ['/', '/login', '/search','/search?q', '/about', '/bookmark', '/tags', '/tools']
 
 export const constantRouteMap = [
     {

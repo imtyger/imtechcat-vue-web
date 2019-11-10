@@ -5,14 +5,14 @@
         <a target="_blank" :href="mark.markLink">{{mark.markTitle}}</a>
       </div>
     </div>
-    <pagination
-            background
-            layout="prev, pager, next"
-            :pageTotal="count"
-            :pageNum="pageNum"
-            :pageSize="pageSize"
-    >
-    </pagination>
+<!--    <pagination-->
+<!--            background-->
+<!--            layout="prev, pager, next"-->
+<!--            :pageTotal="count"-->
+<!--            :pageNum="pageNum"-->
+<!--            :pageSize="pageSize"-->
+<!--    >-->
+<!--    </pagination>-->
   </div>
 </template>
 

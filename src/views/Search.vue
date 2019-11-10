@@ -1,63 +1,57 @@
 <template>
-  <div class="search">
+  <div>
     <div class="input-search">
-      <el-input v-model="input" type="text" clearable class="input-with-select">
+      <el-input v-model="q" type="text" clearable class="input-with-select"
+                @keyup.enter.native="submitSearch">
         <el-button slot="append" icon="el-icon-search" @click.native="submitSearch"></el-button>
       </el-input>
     </div>
-    <!--<template v-if=" searchMarks !== null && searchMarks.length !== 0">-->
-      <!--<div class="search-table">-->
-        <!--<el-table :data="searchMarks"-->
-                  <!--stripe style="width: 100%" height="600"-->
-        <!--&gt;-->
-          <!--<el-table-column fixed sortable prop="lastUpdatedAt" label="日期" ></el-table-column>-->
-          <!--<el-table-column sortable prop="markTitle" label="标题" ></el-table-column>-->
-          <!--<el-table-column prop="markLink" label="URL" ></el-table-column>-->
-        <!--</el-table>-->
-      <!--</div>-->
-    <!--</template>-->
+<!--    <search-tool keywordType="q" :placeholder="this.$route.query.q || '搜索'"></search-tool>-->
+    <div class="content">
+      <div v-for="blog in blogList">
+        <ul>
+          <article>
+            <router-link :to="{path:'/post/'+ blog.id }" class="title">
+              <li>{{blog.blogTitle}}</li>
+            </router-link>
+          </article>
+        </ul>
+        <ul class="profile" v-html="blog.blogProfile"></ul>
+      </div>
+    </div>
   </div>
+
 </template>
 
 <script>
-  import { searchBookmarkListLikeName } from '../api/search'
+  import { searchBlogListLikeInput } from "../api/search";
   import { Message } from 'element-ui'
+  // import searchTool from "../components/SearchTool";
 
   export default {
-    name: 'search',
+    // components: {
+    //   searchTool
+    // },
     data () {
       return {
-        input: '',
+        q: '',
         pageNum: 1,
         pageSize: 20,
-        searchMarks: []
+        blogList: []
       }
     },
 
     methods: {
       async submitSearch () {
-        await searchBookmarkListLikeName(this.input.trim()).then((res) => {
-          if(res.data){
-            const result = res.data
-            if(result.code === 200){
-              this.searchMarks = result.data
-            }else{
-              Message({
-                message: result.msg,
-                type: 'error',
-                duration: 3 * 1000,
-              })
-            }
-          }else{
-            return false
-          }
-
-        }).catch(err => {
-          console.log(err)
-          return err
+        await searchBlogListLikeInput(this.q).then((res) => {//this.$route.query.q
+          this.blogList = res.data.list;
+        }).catch(error => {
+          Message.error(error.message())
         })
-
       }
+    },
+    mounted() {
+      this.submitSearch();
     }
   }
 </script>
@@ -75,11 +69,18 @@
     background-color: #fff;
   }
 
-  .search-table {
+  .content {
     margin-top: 50px;
     margin-left: 20%;
     margin-right: 20%;
-    border-radius: 9px;
+    margin-bottom: 50px;
+    padding: 20px;
+  }
+
+  .profile{
+    font-size: 14px;
+    font-family: "YouYuan";
+    color: #999999;
   }
 
 </style>

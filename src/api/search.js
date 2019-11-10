@@ -18,9 +18,11 @@ const searchTagListLikeTagName = (input) => {
 
 const searchBlogListLikeInput = (input) => {
   return request({
-    url: '/bloglistbyinput',
+    url: '/search',
     method: 'get',
-    params: input
+    params: {
+      q: input
+    }
   })
 }
 

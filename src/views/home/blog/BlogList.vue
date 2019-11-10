@@ -32,6 +32,12 @@
                        @change="switchStatus(scope.row)" placement="top"></el-switch>
           </div>
         </el-table-column>
+        <el-table-column label="删除" prop="flag" >
+          <div slot-scope="scope">
+            <el-switch v-model="scope.row.flag"  name="flag" disabled active-value="1" inactive-value="0"
+                       placement="top"></el-switch>
+          </div>
+        </el-table-column>
         <el-table-column label="操作" fixed="right">
           <div slot-scope="scope">
             <el-button size="mini" @click="editBlog(scope.row)">编辑</el-button>
@@ -71,7 +77,8 @@
         count: undefined,
         searchData: '',
         selectedItem: {},
-        status: undefined
+        status: undefined,
+        flag: undefined
       }
     },
     mounted () {
@@ -107,6 +114,11 @@
           }else{
             blog.status = "0";
           }
+          if(blog.flag == true){
+            blog.flag = "0";
+          }else{
+            blog.flag = "1";
+          }
         })
       },
       onClickNew () {
@@ -139,7 +151,7 @@
         updateHomeBlogByIdAndStatus(row.id, row.status).then(res => {
           this.status = res.data.status;
         }).catch(() => {
-          Message.error('修改展示失败')
+          Message.error('修改失败')
         })
       }
     }
