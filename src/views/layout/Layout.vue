@@ -4,7 +4,7 @@
 
       <!--navbar 顶部栏-->
       <el-col :span="24" class="header">
-        <el-col :span="10" class="logo logo-width">TECHCAT</el-col>
+        <el-col :span="10" class="logo logo-width">TYGER</el-col>
         <el-col :span="10"></el-col>
         <el-col :span="4" class="userinfo">
           <el-dropdown trigger="hover">

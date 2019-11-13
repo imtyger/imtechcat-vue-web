@@ -1,0 +1,5 @@
+imtyger_fed:
+  build: .
+  ports:
+    - "9998:80"
+  restart: always
