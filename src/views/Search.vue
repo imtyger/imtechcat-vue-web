@@ -12,11 +12,11 @@
         <ul>
           <article>
             <router-link :to="{path:'/post/'+ blog.id }" class="title">
-              <li>{{blog.blogTitle}}</li>
+              <li>{{blog.title}}</li>
             </router-link>
           </article>
         </ul>
-        <ul class="profile" v-html="blog.blogProfile"></ul>
+        <ul class="profile" v-html="blog.profile"></ul>
       </div>
     </div>
   </div>

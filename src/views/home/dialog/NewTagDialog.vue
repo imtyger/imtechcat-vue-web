@@ -2,11 +2,11 @@
   <div>
     <el-dialog title="新建" class="dialog-title" width="50%" :visible.sync="dialogVisible">
       <el-form :model="tag" :rules="rules" label-width="50px" ref="Form">
-        <el-form-item label="名称" prop="tagName">
-          <el-input v-model="tag.tagName" auto-complete="off" placeholder="名称"></el-input>
+        <el-form-item label="名称" prop="title">
+          <el-input v-model="tag.title" auto-complete="off" placeholder="名称"></el-input>
         </el-form-item>
-        <el-form-item label="描述" prop="tagDesc">
-          <el-input v-model="tag.tagDesc" auto-complete="off" placeholder="描述"></el-input>
+        <el-form-item label="描述" prop="descr">
+          <el-input v-model="tag.descr" auto-complete="off" placeholder="描述"></el-input>
         </el-form-item>
         <!--<el-form-item label="标签" prop="tags">-->
         <!--<el-input v-model="Mark.tags" auto-complete="off" placeholder="标签"></el-input>-->
@@ -29,16 +29,16 @@
       return {
         loading: false,
         tag: {
-          tagName: '',
-          tagDesc: ''
+          title: '',
+          descr: ''
           // tags: undefined,
         },
         rules: {
-          tagName: [
+          title: [
             { required: true, message: '必填项', trigger: 'blur'},
             { type:'string', min: 1, max: 50, message: '长度在1-20个字符', trigger: 'blur'}
           ],
-          tagDesc: [
+          descr: [
             { required: true, message: '必填项', trigger: 'blur'},
             { type:'string', min: 1, max: 50, message: '长度在1-20个字符', trigger: 'blur'}
           ]

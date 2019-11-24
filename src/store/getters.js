@@ -1,5 +1,5 @@
 const getters = {
-  access_token: state => state.user.access_token,
+  accessToken: state => state.user.accessToken,
   userInfo: state => state.user.userInfo
 }
 

@@ -4,7 +4,7 @@
       <el-col :span="24" v-for="blog in blogList">
         <article class="recent-post-item">
           <router-link :to="{path:'/post/'+ blog.id }" class="title">
-            <h2>{{blog.blogTitle}}</h2>
+            <h2>{{blog.title}}</h2>
           </router-link>
           <div class="post-meta">
             <span>{{ blog.createdAt | formatDate }}</span>
@@ -13,7 +13,7 @@
               <li class="index-tag-list-item" v-for="tag in blog.tags" :key="tag">{{ tag }}&nbsp;</li>
             </ul>
           </div>
-          <div v-html="blog.blogProfile"></div>
+          <div v-html="blog.profile"></div>
           <router-link :to="{path:'/post/'+ blog.id }" class="post-excerpt">
             <p>阅读原文></p>
           </router-link>

@@ -2,7 +2,7 @@
   <div>
     <div class="content">
       <div v-for="mark in markList" class="book-mark-item">
-        <a target="_blank" :href="mark.markLink">{{mark.markTitle}}</a>
+        <a target="_blank" :href="mark.link">{{mark.title}}</a>
       </div>
     </div>
 <!--    <pagination-->

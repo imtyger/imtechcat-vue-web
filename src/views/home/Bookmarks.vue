@@ -12,34 +12,34 @@
 
     <el-container>
       <el-table :data="markList" style="width: 100%" stripe
-                :default-sort="{prop: 'lastUpdatedAt', order: 'descending'}" v-loading="listLoading" >
+                :default-sort="{prop: 'updatedAt', order: 'descending'}" v-loading="listLoading" >
         <el-table-column type="index" ></el-table-column>
-        <el-table-column label="标题" prop="markTitle"  sortable>
+        <el-table-column label="标题" prop="title"  sortable>
           <template slot-scope="scope">
             <el-popover trigger="hover" placement="top">
-              <p>标题: {{ scope.row.markTitle }}</p>
-              <p>描述: {{ scope.row.markDesc }}</p>
+              <p>标题: {{ scope.row.title }}</p>
+              <p>描述: {{ scope.row.descr }}</p>
               <div slot="reference" class="name-wrapper">
-                <span>{{ scope.row.markTitle }}</span>
+                <span>{{ scope.row.title }}</span>
               </div>
             </el-popover>
           </template>
         </el-table-column>
-        <el-table-column label="URL" prop="markLink"  class="info-content">
+        <el-table-column label="URL" prop="link"  class="info-content">
           <template slot-scope="scope" >
-            <a target="_blank" :href="scope.row.markLink">{{ scope.row.markLink }}</a>
+            <a target="_blank" :href="scope.row.link">{{ scope.row.link }}</a>
           </template>
         </el-table-column>
-        <el-table-column label="标签" prop="tags" >
-          <template slot-scope="scope">
-            <div v-if="scope.row.tags !== null && scope.row.tags.size !== 0">
-              <el-tag disable-transitions size="small" effect="plain" v-for="tag in scope.row.tags"
-                      :key="tag">{{ tag }}</el-tag>
-            </div>
-          </template>
-        </el-table-column>
+<!--        <el-table-column label="标签" prop="tags" >-->
+<!--          <template slot-scope="scope">-->
+<!--            <div v-if="scope.row.tags !== null && scope.row.tags.size !== 0">-->
+<!--              <el-tag disable-transitions size="small" effect="plain" v-for="tag in scope.row.tags"-->
+<!--                      :key="tag">{{ tag }}</el-tag>-->
+<!--            </div>-->
+<!--          </template>-->
+<!--        </el-table-column>-->
         <el-table-column label="创建时间" prop="createdAt"  sortable></el-table-column>
-        <el-table-column label="最后更新时间" prop="lastUpdatedAt"  sortable></el-table-column>
+        <el-table-column label="最后更新时间" prop="updatedAt"  sortable></el-table-column>
         <el-table-column label="操作" fixed="right" >
           <div slot-scope="scope">
             <el-button size="mini" @click="editMark(scope.row)">编辑</el-button>

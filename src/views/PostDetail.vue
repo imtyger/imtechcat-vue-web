@@ -1,10 +1,10 @@
 <template>
     <div v-if="blog !== null && blog !== ''">
         <el-header style="height: 100px; text-align: center">
-            <span><h2>{{blog.blogTitle}}</h2></span>
+            <span><h2>{{blog.title}}</h2></span>
         </el-header>
         <el-main>
-            <mavon-editor v-html="blog.blogHtml"> {{blog.blogHtml}}</mavon-editor>
+            <mavon-editor v-html="blog.html"> {{blog.html}}</mavon-editor>
         </el-main>
         <el-footer class="footer">
             <span>时间：{{blog.createdAt | formatDate }}</span>

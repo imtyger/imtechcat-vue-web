@@ -9,10 +9,11 @@ const getHomeBookmarks = (query) => {
 }
 
 const deleteHomeBookmarks = (data) => {
+  const id = data.id;
   return request({
-    url: '/home/bookmarks/delete',
+    url: '/home/bookmarks/delete/' + id,
     method: 'delete',
-    data
+    params: id
   })
 }
 

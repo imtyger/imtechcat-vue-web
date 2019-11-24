@@ -1,8 +1,8 @@
 <template>
     <div class="components-container">
         <el-form :model="blogForm" :rules="rules" ref="blogForm" style="width: 100%">
-            <el-form-item  prop="blogTitle" >
-                <el-input v-model="blogForm.blogTitle" type="text" auto-complete="off" clearable placeholder="标题"
+            <el-form-item  prop="title" >
+                <el-input v-model="blogForm.title" type="text" auto-complete="off" clearable placeholder="标题"
                           style="width: 100%"></el-input>
             </el-form-item>
             <el-form-item prop="tags">
@@ -17,11 +17,11 @@
                     </div>
                 </el-select>
             </el-form-item>
-            <el-form-item prop="blogContent" >
-                <mavon-editor style="height: 600px" v-model="blogForm.blogContent" @change="changeData"></mavon-editor>
+            <el-form-item prop="content" >
+                <mavon-editor style="height: 600px" v-model="blogForm.content" @change="changeData"></mavon-editor>
                 <!--v-model="blogForm.blogContent"-->
             </el-form-item>
-            <el-form-item prop="blogHtml" fixed="right">
+            <el-form-item prop="html" fixed="right">
                 <el-button style="margin-top: 20px;" type="primary" size="small" @click="exit" :loading="loading" >取消
                 </el-button>
                 <el-button style="margin-top: 20px;" type="primary" size="small" @click="saveBlog" :loading="loading"
@@ -50,11 +50,11 @@
                 loading: false,
                 selectItems: [],
                 rules: {
-                    blogTitle: [
+                    title: [
                         {required: true, message: '请填写标题', trigger: 'blur'},
                         {min: 2, max: 50, message: '标题长度在2-50个字符', trigger: 'blur'}
                     ],
-                    blogContent: [
+                    content: [
                         {required: true, message: '请填写内容', trigger: 'blur'},
                         {min: 2, message: '内容最少包含10个字符', trigger: 'blur'}
                     ]
@@ -75,7 +75,7 @@
                 this.selectItems = data.data.tags;
             },
             changeData(markdown, html){
-                this.blogForm.blogHtml = html
+                this.blogForm.html = html
             },
             async saveBlog() {
                 this.$refs['blogForm'].validate( async valid =>{

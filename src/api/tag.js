@@ -9,10 +9,11 @@ const getHomeTags = (query) => {
 }
 
 const deleteHomeTags = (data) => {
+  const id = data.id;
   return request({
-    url: '/home/tags/delete',
+    url: '/home/tags/delete/' + id,
     method: 'delete',
-    data
+    params: id
   })
 }
 

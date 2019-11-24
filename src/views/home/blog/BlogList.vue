@@ -14,8 +14,9 @@
 
     <el-container>
       <el-table :data="blogList" style="width: 100%" stripe
-                :default-sort="{prop: 'lastUpdatedAt', order: 'descending'}" v-loading="listLoading">
-        <el-table-column label="标题" prop="blogTitle" sortable></el-table-column>
+                :default-sort="{prop: 'updatedAt', order: 'descending'}" v-loading="listLoading">
+        <el-table-column type="index" ></el-table-column>
+        <el-table-column label="标题" prop="title" sortable></el-table-column>
         <el-table-column label="标签" prop="tags">
           <template slot-scope="scope">
             <div v-if="scope.row.tags !== null && scope.row.tags.size !== 0">
@@ -25,19 +26,19 @@
           </template>
         </el-table-column>
         <el-table-column label="创建时间" prop="createdAt" sortable></el-table-column>
-        <el-table-column label="最后更新时间" prop="lastUpdatedAt" sortable></el-table-column>
+        <el-table-column label="最后更新时间" prop="updatedAt" sortable></el-table-column>
         <el-table-column label="展示" prop="status" >
           <div slot-scope="scope">
-            <el-switch v-model="scope.row.status"  name="status" active-value="1" inactive-value="0"
+            <el-switch v-model="scope.row.status"  name="status" active-value="0" inactive-value="1"
                        @change="switchStatus(scope.row)" placement="top"></el-switch>
           </div>
         </el-table-column>
-        <el-table-column label="删除" prop="flag" >
-          <div slot-scope="scope">
-            <el-switch v-model="scope.row.flag"  name="flag" disabled active-value="1" inactive-value="0"
-                       placement="top"></el-switch>
-          </div>
-        </el-table-column>
+<!--        <el-table-column label="删除" prop="flag" >-->
+<!--          <div slot-scope="scope">-->
+<!--            <el-switch v-model="scope.row.deleted"  name="deleted" disabled active-value="0" inactive-value="1"-->
+<!--                       placement="top"></el-switch>-->
+<!--          </div>-->
+<!--        </el-table-column>-->
         <el-table-column label="操作" fixed="right">
           <div slot-scope="scope">
             <el-button size="mini" @click="editBlog(scope.row)">编辑</el-button>
@@ -78,7 +79,7 @@
         searchData: '',
         selectedItem: {},
         status: undefined,
-        flag: undefined
+        deleted: undefined
       }
     },
     mounted () {
@@ -109,16 +110,13 @@
       },
       _checkBlogStatus(blogList) {
         blogList.forEach((blog) => {
-          if(blog.status == true){
-            blog.status = "1";
-          }else{
+          console.log(blog.status);
+          if(blog.status === 0){
             blog.status = "0";
           }
-          if(blog.flag == true){
-            blog.flag = "0";
-          }else{
-            blog.flag = "1";
-          }
+          // if(blog.deleted === 0){
+          //   blog.deleted = "1";
+          // }
         })
       },
       onClickNew () {

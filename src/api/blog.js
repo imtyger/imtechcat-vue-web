@@ -11,7 +11,7 @@ const getHomeBlogList = (query) => {
 const deleteHomeBlog = (data) => {
   const id = data.id;
   return request({
-    url: '/home/blog/delete/' + id,
+    url: '/home/blogs/delete/' + id,
     method: 'delete',
     params: id
   })
@@ -19,7 +19,7 @@ const deleteHomeBlog = (data) => {
 
 const updateHomeBlog = (data) => {
   return request({
-    url: '/home/blog/update',
+    url: '/home/blogs/update',
     method: 'put',
     data
   })
@@ -27,7 +27,7 @@ const updateHomeBlog = (data) => {
 
 const getHomeBlogById = (id) => {
   return request({
-    url: '/home/blog-edit/' + id,
+    url: '/home/blogs/edit/' + id,
     method: 'get',
     params: id
   })
@@ -35,7 +35,7 @@ const getHomeBlogById = (id) => {
 
 const newHomeBlog = (data) => {
   return request({
-    url: '/home/blog/new',
+    url: '/home/blogs/new',
     method: 'post',
     data
   })
@@ -59,7 +59,7 @@ const getBlogPostId = (id) => {
 
 const updateHomeBlogByIdAndStatus = (id,status) => {
   return request({
-    url: '/home/blog/update/' + id + '/' + status,
+    url: '/home/blogs/update/' + id + '/' + status,
     method: 'put',
     params: {
       id, status
@@ -67,11 +67,11 @@ const updateHomeBlogByIdAndStatus = (id,status) => {
   })
 }
 
-const getBlogsPostTagName = (tagName) => {
+const getBlogsPostTagName = (tag) => {
   return request({
-    url: '/tags/post/' + tagName,
+    url: '/tags/post/' + tag,
     method: 'get',
-    params: tagName
+    params: tag
   })
 }
 

@@ -23,7 +23,8 @@
 
             <!--底部栏-->
             <el-footer>
-                <el-link target="_blank" href="http://www.miibeian.gov.cn/">京ICP备19001124号-1</el-link>
+                <el-link target="_blank" href="http://www.miibeian.gov.cn/">Copyright © 2019 imtyger.com All rights
+                    reserved. 京ICP备19001124号-1</el-link>
             </el-footer>
         </el-container>
     </div>

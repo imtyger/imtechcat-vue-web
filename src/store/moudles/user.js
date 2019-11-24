@@ -10,11 +10,11 @@ const user = {
       nickname: ''
     },
     status: '',
-    access_token: getToken()
+    accessToken: getToken()
   },
   mutations: {
     SET_TOKEN: (state, token) => {
-      state.access_token = token
+      state.accessToken = token
     },
     SET_USERINFO_ID: (state, userId) => {
       state.userInfo.id = userId
@@ -40,7 +40,7 @@ const user = {
       return new Promise((resolve, reject) => {
         login(username, userInfo.password).then(response => {
           const data = response.data
-          const accessToken = data.access_token
+          const accessToken = data.accessToken
           commit('SET_TOKEN', accessToken)
           setToken(accessToken)
           resolve()
@@ -60,7 +60,7 @@ const user = {
           commit('SET_USERINFO_ID', data.id)
           commit('SET_USERINFO_USERNAME', data.username)
           commit('SET_USERINFO_NICKNAME', data.nickname)
-          commit('SET_USERINFO_AVATAR', data.avataricon)
+          commit('SET_USERINFO_AVATAR', data.avatar)
           resolve(response)
         }).catch(error => {
           reject(error)

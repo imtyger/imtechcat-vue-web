@@ -3,11 +3,11 @@
     <!--编辑界面-->
     <el-dialog class="dialog-title" title="编辑" width="50%" :visible.sync="dialogVisible" divider>
       <el-form :model="selectedItem" label-width="50px" :rules="rules" ref="Form">
-        <el-form-item label="名称" prop="tagName">
-          <el-input v-model="selectedItem.tagName" auto-complete="off"></el-input>
+        <el-form-item label="名称" prop="title">
+          <el-input v-model="selectedItem.title" auto-complete="off"></el-input>
         </el-form-item>
-        <el-form-item label="描述" prop="tagDesc">
-          <el-input v-model="selectedItem.tagDesc" auto-complete="off"></el-input>
+        <el-form-item label="描述" prop="descr">
+          <el-input v-model="selectedItem.descr" auto-complete="off"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -26,11 +26,11 @@
       return {
         editLoading: false,
         rules: {
-          tagName: [
+          title: [
             { required: true, message: '必填项', trigger: 'blur'},
             { type:'string', min: 1, max: 50, message: '长度在1-20个字符', trigger: 'blur'}
           ],
-          tagDesc: [
+          descr: [
             { required: true, message: '必填项', trigger: 'blur'},
             { type:'string', min: 1, max: 50, message: '长度在1-20个字符', trigger: 'blur'}
           ]

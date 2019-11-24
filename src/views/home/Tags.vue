@@ -11,22 +11,22 @@
     <new-tag-dialog :dialogType.sync="dialogType"/>
     <el-container>
       <el-table :data="tagList" style="width: 100%" stripe
-                :default-sort="{prop: 'lastUpdatedAt', order: 'descending'}" v-loading="listLoading">
+                :default-sort="{prop: 'updatedAt', order: 'descending'}" v-loading="listLoading">
         <el-table-column type="index"></el-table-column>
-        <el-table-column label="名称" prop="tagName" sortable>
+        <el-table-column label="名称" prop="title" sortable>
           <template slot-scope="scope">
             <el-popover trigger="hover" placement="top">
-              <p>名称: {{ scope.row.tagName }}</p>
-              <p>描述: {{ scope.row.tagDesc }}</p>
+              <p>名称: {{ scope.row.title }}</p>
+              <p>描述: {{ scope.row.descr }}</p>
               <div slot="reference" class="name-wrapper">
-                <el-tag size="medium">{{ scope.row.tagName }}</el-tag>
+                <el-tag size="medium">{{ scope.row.title }}</el-tag>
               </div>
             </el-popover>
           </template>
         </el-table-column>
         <!--<el-table-column label="描述" prop="tagDesc"></el-table-column>-->
         <el-table-column label="创建时间" prop="createdAt" sortable></el-table-column>
-        <el-table-column label="更新时间" prop="lastUpdatedAt" sortable></el-table-column>
+        <el-table-column label="更新时间" prop="updatedAt" sortable></el-table-column>
         <el-table-column label="操作" fixed="right">
           <div slot-scope="scope">
             <el-button size="mini" @click="editTag(scope.row)">编辑</el-button>

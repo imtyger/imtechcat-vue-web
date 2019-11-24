@@ -1,4 +1,4 @@
-const TokenKey = 'access_token'
+const TokenKey = 'accessToken'
 
 export function getToken () {
   return window.localStorage.getItem(TokenKey)

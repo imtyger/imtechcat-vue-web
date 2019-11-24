@@ -2,10 +2,10 @@
   <div>
     <div class="content">
       <div class="tag-list" v-for="tags in tagList">
-        <router-link :to="{ path:'/tags/post/'+ tags.tagName }">
+        <router-link :to="{ path:'/tags/post/'+ tags.title }">
           <li class="tag-list-item">
-            <a class="tag-list-link">{{ tags.tagName }}</a>
-            <span class="tag-list-count">{{ tags.count }}</span>
+            <a class="tag-list-link">{{ tags.title }}</a>
+            <span class="tag-list-count">{{ tags.usedCount }}</span>
           </li>
         </router-link>
       </div>

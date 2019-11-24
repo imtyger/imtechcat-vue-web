@@ -7,7 +7,7 @@
             <span>{{ blog.createdAt | formatDate }}</span>
             <span> -- </span>
             <router-link :to="{path:'/post/'+ blog.id }">
-              <span>{{ blog.blogTitle }}</span>
+              <span>{{ blog.title }}</span>
             </router-link>
           </div>
         </h4>

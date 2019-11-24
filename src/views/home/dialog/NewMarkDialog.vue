@@ -2,25 +2,25 @@
     <div>
       <el-dialog title="新建" class="dialog-title" width="50%" :visible.sync="dialogVisible">
         <el-form :model="mark" :rules="rules" label-width="50px" ref="Form">
-          <el-form-item label="标题" prop="markTitle">
-            <el-input v-model="mark.markTitle" auto-complete="off" placeholder="标题"></el-input>
+          <el-form-item label="标题" prop="title">
+            <el-input v-model="mark.title" auto-complete="off" placeholder="标题"></el-input>
           </el-form-item>
-          <el-form-item label="描述" prop="markDesc">
-            <el-input v-model="mark.markDesc" auto-complete="off" placeholder="描述"></el-input>
+          <el-form-item label="描述" prop="descr">
+            <el-input v-model="mark.descr" auto-complete="off" placeholder="描述"></el-input>
           </el-form-item>
-          <el-form-item label="标签" prop="tags">
-            <!--<el-input v-model="mark.tags" auto-complete="off" placeholder="标签"></el-input> :v-infinite-scroll="selectLoad"-->
-            <el-select v-model="mark.tags" multiple :multiple-limit="5" placeholder="选择或搜索"  style="width: 100%" filterable clearable>
-              <div v-if="selectItems !== null && selectItems.size !== 0">
-                <el-option v-for="item in selectItems" :key="item" :label="item" :value="item"></el-option>
-              </div>
-              <div v-else>
+<!--          <el-form-item label="标签" prop="tags">-->
+<!--            &lt;!&ndash;<el-input v-model="mark.tags" auto-complete="off" placeholder="标签"></el-input> :v-infinite-scroll="selectLoad"&ndash;&gt;-->
+<!--            <el-select v-model="mark.tags" multiple :multiple-limit="5" placeholder="选择或搜索"  style="width: 100%" filterable clearable>-->
+<!--              <div v-if="selectItems !== null && selectItems.size !== 0">-->
+<!--                <el-option v-for="item in selectItems" :key="item" :label="item" :value="item"></el-option>-->
+<!--              </div>-->
+<!--              <div v-else>-->
 
-              </div>
-            </el-select>
-          </el-form-item>
-          <el-form-item label="URL" prop="markLink">
-            <el-input v-model="mark.markLink" type="textarea" :row="3" auto-complete="off" placeholder="URL"></el-input>
+<!--              </div>-->
+<!--            </el-select>-->
+<!--          </el-form-item>-->
+          <el-form-item label="URL" prop="link">
+            <el-input v-model="mark.link" type="textarea" :row="3" auto-complete="off" placeholder="URL"></el-input>
           </el-form-item>
         </el-form>
         <div slot="footer" class="dialog-footer">
@@ -53,15 +53,15 @@
         selectItems: [],
         // loadCount: 0,
         rules: {
-          markTitle: [
+          title: [
             { required: true, message: '必填项', trigger: 'blur'},
             { type:'string', min: 1, max: 50, message: '长度在1-50个字符', trigger: 'blur'}
           ],
-          markDesc: [
+          descr: [
             { required: true, message: '必填项', trigger: 'blur'},
             { type:'string', min: 1, max: 50, message: '长度在1-50个字符', trigger: 'blur'}
           ],
-          markLink: [
+          link: [
             { required: true, message: '必填项', trigger: 'blur'},
             { validator: validateURL, trigger: 'blur'}
           ]
