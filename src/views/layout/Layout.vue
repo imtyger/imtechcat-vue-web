@@ -33,7 +33,7 @@
               <i class="el-icon-collection"></i>
               <span slot="title">标签</span>
             </el-menu-item>
-            <el-menu-item index="/home/blog">
+            <el-menu-item index="/home/blogs">
               <i class="el-icon-document"></i>
               <span slot="title">博客</span>
             </el-menu-item>

@@ -80,7 +80,7 @@
                             newHomeBlog(this.blogForm).then(() => {
                                 this.loading = false;
                                 //跳转博客页面
-                                this.$router.push('/home/blog')
+                                this.$router.push('/home/blogs')
 
                             }).catch( error=> {
                                 this.loading = false;

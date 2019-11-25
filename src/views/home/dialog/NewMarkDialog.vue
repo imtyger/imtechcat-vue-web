@@ -35,7 +35,6 @@
 <script>
   import { isURL } from '@/utils/validate'
   import { newHomeBookmarks } from '../../../api/bookmark'
-  import { getBookmarkDefaultTagNames } from '../../../api/tag'
 
   export default {
     props: ['dialogType'],
@@ -69,11 +68,11 @@
       }
     },
     mounted () {
-      this.getDefaultTagList()
+      // this.getDefaultTagList()
     },
     watch: {
       $route(to, from) {
-        this.getDefaultTagList()
+        // this.getDefaultTagList()
       }
     },
     computed: {
@@ -93,10 +92,10 @@
       // selectLoad (){
       //   this.loadCount += 2;
       // },
-      async getDefaultTagList () {
-        const data = await getBookmarkDefaultTagNames();
-        this.selectItems = data.data.tags;
-      },
+      // async getDefaultTagList () {
+      //   const data = await getBookmarkDefaultTagNames();
+      //   this.selectItems = data.data.tags;
+      // },
       submitDialog () {
         //link校验失败
         this.$refs.Form.validate(async valid => {

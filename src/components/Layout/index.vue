@@ -6,7 +6,7 @@
                 <el-menu class="el-menu-demo" mode="horizontal" @select="handleSelect">
                     <el-menu-item class="site-title">Tyger's Blog</el-menu-item>
                     <el-menu-item index="/">首页</el-menu-item>
-                    <el-menu-item index="/bookmark">收藏</el-menu-item>
+                    <el-menu-item index="/bookmarks">收藏</el-menu-item>
                     <el-menu-item index="/tags">标签</el-menu-item>
                     <el-menu-item index="/search">搜索</el-menu-item>
                     <el-menu-item index="/tools">工具</el-menu-item>
