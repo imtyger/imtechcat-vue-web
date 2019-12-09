@@ -83,8 +83,8 @@ export const constantRouteMap = [
                 component: () => import('../views/home/Set.vue')
             },
             {
-                path: 'timeline',
-                component: () => import('../views/home/Timeline.vue')
+                path: 'recording',
+                component: () => import('../views/home/Record.vue')
             }
         ]
     }

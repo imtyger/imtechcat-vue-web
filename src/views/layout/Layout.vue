@@ -41,7 +41,7 @@
               <i class="el-icon-setting"></i>
               <span slot="title">设置</span>
             </el-menu-item>
-            <el-menu-item index="/home/timeline">
+            <el-menu-item index="/home/recording">
               <i class="el-icon-edit-outline"></i>
               <span slot="title">记录</span>
             </el-menu-item>

@@ -20,7 +20,7 @@
 </template>
 
 <script>
-  import { login } from '../api/login'
+  // import { login } from '../api/login'
 
   export default {
     data(){
@@ -48,13 +48,12 @@
         this.$refs[ruleForm].validate( async valid =>{
           if(valid){
             this.loading = true;
-            this.$store.dispatch('login',this.ruleForm).then(() => {
+            this.$store.dispatch('login',this.ruleForm).then( () => {
               this.$router.push({ path: '/home'})
               this.loading = false
+            }).catch( ()=> {
+              this.loading = false
             })
-              .catch(() => {
-                this.loading = false
-              })
           }else{
             this.resetForm(ruleForm)
             return false
